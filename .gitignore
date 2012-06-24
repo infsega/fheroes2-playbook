@@ -1,0 +1,4 @@
+﻿.settings/
+.settings/*
+Device-Debug/*
+Device-Release/*
