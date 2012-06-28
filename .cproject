@@ -25,6 +25,9 @@
 								<option id="com.qnx.qcc.option.compile.debug.1393676404" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.640063815" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/src}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/emulate}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
@@ -55,6 +58,7 @@
 								<option id="com.qnx.qcc.option.compiler.security.254956266" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.727932674" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="WITH_MIXER"/>
 									<listOptionValue builtIn="false" value="WITH_IMAGE"/>
 									<listOptionValue builtIn="false" value="WITH_ZLIB"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
@@ -65,6 +69,8 @@
 								<option id="com.qnx.qcc.option.assembler.debug.1526469622" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.assembler.includePath.1146905019" name="Include Directories (-I)" superClass="com.qnx.qcc.option.assembler.includePath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.assembler.1879186054" superClass="com.qnx.qcc.inputType.assembler"/>
 							</tool>
@@ -73,6 +79,9 @@
 								<option id="com.qnx.qcc.option.linker.langcpp.862636360" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.899624058" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer/Device-Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/vorbis/Device-Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/SDL_image/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/TouchControlOverlay/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
@@ -81,9 +90,12 @@
 								<option id="com.qnx.qcc.option.linker.security.1209566779" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.577359636" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="SDL12"/>
+									<listOptionValue builtIn="false" value="SDL_mixer"/>
 									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
 									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="ogg"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.57591137" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -106,7 +118,22 @@
 						<entry flags="RESOLVED" kind="libraryFile" name="emulate"/>
 					</externalSetting>
 				</externalSettings>
+				<externalSettings containerId="ogg;com.qnx.qcc.configuration.sharedLib.debug.1139334235" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="vorbis;com.qnx.qcc.configuration.sharedLib.debug.271493696" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/vorbis"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/vorbis/Device-Debug"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="vorbis"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL_image;com.qnx.qcc.configuration.sharedLib.debug.734436106" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="SDL_mixer;com.qnx.qcc.configuration.sharedLib.debug.18877065" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_mixer"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_mixer/Device-Debug"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="SDL_mixer"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL12;com.qnx.qcc.configuration.sharedLib.debug.1551432411" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL12"/>
@@ -136,7 +163,10 @@
 							<tool id="com.qnx.qcc.tool.compiler.782153570" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
 								<option id="com.qnx.qcc.option.compiler.optlevel.1997841490" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.2" valueType="enumerated"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.992364110" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/src}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/emulate}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
@@ -167,6 +197,7 @@
 								<option id="com.qnx.qcc.option.compiler.security.2058374909" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.1820872657" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="WITH_MIXER"/>
 									<listOptionValue builtIn="false" value="WITH_IMAGE"/>
 									<listOptionValue builtIn="false" value="WITH_ZLIB"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
@@ -179,7 +210,9 @@
 							</tool>
 							<tool id="com.qnx.qcc.tool.assembler.178262733" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
 								<option id="com.qnx.qcc.option.assembler.includePath.731344071" name="Include Directories (-I)" superClass="com.qnx.qcc.option.assembler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.assembler.1787414067" superClass="com.qnx.qcc.inputType.assembler"/>
@@ -187,7 +220,10 @@
 							<tool id="com.qnx.qcc.tool.linker.541509189" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
 								<option id="com.qnx.qcc.option.linker.langcpp.333855722" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.1416201630" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="${workspace_loc:/SDL_image/Device-Release}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer/Device-Release}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image/Device-Release}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/vorbis/Device-Release}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/Device-Release}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/TouchControlOverlay/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
@@ -196,10 +232,13 @@
 								<option id="com.qnx.qcc.option.linker.pie.118481232" name="Position Independent Executable (-pie)" superClass="com.qnx.qcc.option.linker.pie" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.security.825106807" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.16474574" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL_mixer"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
 									<listOptionValue builtIn="false" value="SDL12"/>
 									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
-									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="ogg"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.2080155205" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -222,11 +261,26 @@
 						<entry flags="RESOLVED" kind="libraryFile" name="emulate"/>
 					</externalSetting>
 				</externalSettings>
+				<externalSettings containerId="ogg;com.qnx.qcc.configuration.sharedLib.release.912232386" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="vorbis;com.qnx.qcc.configuration.sharedLib.release.1030258672" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/vorbis"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/vorbis/Device-Release"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="vorbis"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL_image;com.qnx.qcc.configuration.sharedLib.release.2066247305" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_image"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_image/Device-Release"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="SDL_image"/>
+					</externalSetting>
+				</externalSettings>
+				<externalSettings containerId="SDL_mixer;com.qnx.qcc.configuration.sharedLib.release.1930075475" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_mixer"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_mixer/Device-Release"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="SDL_mixer"/>
 					</externalSetting>
 				</externalSettings>
 				<externalSettings containerId="SDL12;com.qnx.qcc.configuration.sharedLib.release.1970482052" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
@@ -254,7 +308,10 @@
 								<option id="com.qnx.qcc.option.compile.debug.392916684" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.profile2.1522120298" name="Build for Profiling (Function Instrumentation) (-finstrument-functions)" superClass="com.qnx.qcc.option.compiler.profile2" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.1692761155" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/src}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/emulate}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
@@ -285,6 +342,7 @@
 								<option id="com.qnx.qcc.option.compiler.security.584549543" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.583847407" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="WITH_MIXER"/>
 									<listOptionValue builtIn="false" value="WITH_IMAGE"/>
 									<listOptionValue builtIn="false" value="WITH_ZLIB"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
@@ -294,7 +352,9 @@
 							<tool id="com.qnx.qcc.tool.assembler.1494608893" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
 								<option id="com.qnx.qcc.option.assembler.debug.2029017391" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.assembler.includePath.1845982992" name="Include Directories (-I)" superClass="com.qnx.qcc.option.assembler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.assembler.1580390202" superClass="com.qnx.qcc.inputType.assembler"/>
@@ -304,7 +364,10 @@
 								<option id="com.qnx.qcc.option.linker.profile2.1750481390" name="Build for Profiling (Function Instrumentation) (-lprofiling)" superClass="com.qnx.qcc.option.linker.profile2" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.langcpp.2100664960" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.1158859749" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="${workspace_loc:/SDL_image/Device-Profile}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer/Device-Profile}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image/Device-Profile}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/vorbis/Device-Profile}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/Device-Profile}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/TouchControlOverlay/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
@@ -312,10 +375,13 @@
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.1290153780" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.447518027" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL_mixer"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
 									<listOptionValue builtIn="false" value="SDL12"/>
 									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
-									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="ogg"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.1658401469" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -338,11 +404,26 @@
 						<entry flags="RESOLVED" kind="libraryFile" name="emulate"/>
 					</externalSetting>
 				</externalSettings>
+				<externalSettings containerId="ogg;com.qnx.qcc.configuration.sharedLib.profile.1977009628" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="vorbis;com.qnx.qcc.configuration.sharedLib.profile.1963447373" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/vorbis"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/vorbis/Device-Profile"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="vorbis"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL_image;com.qnx.qcc.configuration.sharedLib.profile.1642975642" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_image"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_image/Device-Profile"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="SDL_image"/>
+					</externalSetting>
+				</externalSettings>
+				<externalSettings containerId="SDL_mixer;com.qnx.qcc.configuration.sharedLib.profile.727895109" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_mixer"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_mixer/Device-Profile"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="SDL_mixer"/>
 					</externalSetting>
 				</externalSettings>
 				<externalSettings containerId="SDL12;com.qnx.qcc.configuration.sharedLib.profile.366549893" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
@@ -370,7 +451,10 @@
 								<option id="com.qnx.qcc.option.compile.debug.1322702409" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.coverage.1421792518" name="Build for Code Coverage (-Wc,-ftest-coverage -Wc,-fprofile-arcs)" superClass="com.qnx.qcc.option.compiler.coverage" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.2039005924" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/src}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/emulate}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
@@ -401,6 +485,7 @@
 								<option id="com.qnx.qcc.option.compiler.security.704426494" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.568317857" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="WITH_MIXER"/>
 									<listOptionValue builtIn="false" value="WITH_IMAGE"/>
 									<listOptionValue builtIn="false" value="WITH_ZLIB"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
@@ -410,7 +495,9 @@
 							<tool id="com.qnx.qcc.tool.assembler.1910632883" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
 								<option id="com.qnx.qcc.option.assembler.debug.1275885061" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.assembler.includePath.1706073470" name="Include Directories (-I)" superClass="com.qnx.qcc.option.assembler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.assembler.1594005010" superClass="com.qnx.qcc.inputType.assembler"/>
@@ -420,7 +507,10 @@
 								<option id="com.qnx.qcc.option.linker.coverage.798016056" name="Build for Code Coverage (-ftest-coverage -fprofile-arcs -p)" superClass="com.qnx.qcc.option.linker.coverage" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.langcpp.1680263798" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.2077023238" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="${workspace_loc:/SDL_image/Device-Coverage}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer/Device-Coverage}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image/Device-Coverage}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/vorbis/Device-Coverage}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/Device-Coverage}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/TouchControlOverlay/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
@@ -428,10 +518,13 @@
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.1440617329" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.603250157" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL_mixer"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
 									<listOptionValue builtIn="false" value="SDL12"/>
 									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
-									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="ogg"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.325054857" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -454,11 +547,26 @@
 						<entry flags="RESOLVED" kind="libraryFile" name="emulate"/>
 					</externalSetting>
 				</externalSettings>
+				<externalSettings containerId="ogg;com.qnx.qcc.configuration.sharedLib.coverage.757854837" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="vorbis;com.qnx.qcc.configuration.sharedLib.coverage.230548624" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/vorbis"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/vorbis/Device-Coverage"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="vorbis"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL_image;com.qnx.qcc.configuration.sharedLib.coverage.1099045233" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_image"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_image/Device-Coverage"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="SDL_image"/>
+					</externalSetting>
+				</externalSettings>
+				<externalSettings containerId="SDL_mixer;com.qnx.qcc.configuration.sharedLib.coverage.1146010363" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_mixer"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_mixer/Device-Coverage"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="SDL_mixer"/>
 					</externalSetting>
 				</externalSettings>
 				<externalSettings containerId="SDL12;com.qnx.qcc.configuration.sharedLib.coverage.327278952" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
@@ -484,7 +592,10 @@
 								<option id="com.qnx.qcc.option.compiler.optlevel.706690100" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.0" valueType="enumerated"/>
 								<option id="com.qnx.qcc.option.compile.debug.528520461" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.364375016" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/src}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/emulate}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
@@ -515,6 +626,7 @@
 								<option id="com.qnx.qcc.option.compiler.security.1310819602" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.657072657" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="WITH_MIXER"/>
 									<listOptionValue builtIn="false" value="WITH_IMAGE"/>
 									<listOptionValue builtIn="false" value="WITH_ZLIB"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
@@ -524,7 +636,9 @@
 							<tool id="com.qnx.qcc.tool.assembler.245252501" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
 								<option id="com.qnx.qcc.option.assembler.debug.282632054" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.assembler.includePath.649501799" name="Include Directories (-I)" superClass="com.qnx.qcc.option.assembler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.assembler.1121444290" superClass="com.qnx.qcc.inputType.assembler"/>
@@ -533,7 +647,10 @@
 								<option id="com.qnx.qcc.option.linker.debug.329195028" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.langcpp.1206769157" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.454492766" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="${workspace_loc:/SDL_image/Simulator-Debug}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer/Simulator-Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image/Simulator-Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/vorbis/Simulator-Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/Simulator-Debug}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/TouchControlOverlay/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
@@ -541,10 +658,13 @@
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.88628306" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.477505967" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL_mixer"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
 									<listOptionValue builtIn="false" value="SDL12"/>
 									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
-									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="ogg"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.115863254" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -567,11 +687,26 @@
 						<entry flags="RESOLVED" kind="libraryFile" name="emulate"/>
 					</externalSetting>
 				</externalSettings>
+				<externalSettings containerId="ogg;com.qnx.qcc.configuration.sharedLib.debug.541528005" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="vorbis;com.qnx.qcc.configuration.sharedLib.debug.255766182" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/vorbis"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/vorbis/Simulator-Debug"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="vorbis"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL_image;com.qnx.qcc.configuration.sharedLib.debug.1198207190" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_image"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_image/Simulator-Debug"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="SDL_image"/>
+					</externalSetting>
+				</externalSettings>
+				<externalSettings containerId="SDL_mixer;com.qnx.qcc.configuration.sharedLib.debug.1811005670" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_mixer"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_mixer/Simulator-Debug"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="SDL_mixer"/>
 					</externalSetting>
 				</externalSettings>
 				<externalSettings containerId="SDL12;com.qnx.qcc.configuration.sharedLib.debug.389344599" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
@@ -598,7 +733,10 @@
 								<option id="com.qnx.qcc.option.compile.debug.1349517182" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.profile2.1306511104" name="Build for Profiling (Function Instrumentation) (-finstrument-functions)" superClass="com.qnx.qcc.option.compiler.profile2" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.1219505652" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/src}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/emulate}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
@@ -629,6 +767,7 @@
 								<option id="com.qnx.qcc.option.compiler.security.1384816399" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.244986853" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="WITH_MIXER"/>
 									<listOptionValue builtIn="false" value="WITH_IMAGE"/>
 									<listOptionValue builtIn="false" value="WITH_ZLIB"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
@@ -638,7 +777,9 @@
 							<tool id="com.qnx.qcc.tool.assembler.2078160482" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
 								<option id="com.qnx.qcc.option.assembler.debug.826972673" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.assembler.includePath.111556254" name="Include Directories (-I)" superClass="com.qnx.qcc.option.assembler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.assembler.69509257" superClass="com.qnx.qcc.inputType.assembler"/>
@@ -648,7 +789,10 @@
 								<option id="com.qnx.qcc.option.linker.profile2.121415121" name="Build for Profiling (Function Instrumentation) (-lprofiling)" superClass="com.qnx.qcc.option.linker.profile2" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.langcpp.431814698" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.1465873944" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="${workspace_loc:/SDL_image/Simulator-Profile}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer/Simulator-Profile}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image/Simulator-Profile}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/vorbis/Simulator-Profile}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/Simulator-Profile}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/TouchControlOverlay/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
@@ -656,10 +800,13 @@
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.1051684321" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.1787536723" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL_mixer"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
 									<listOptionValue builtIn="false" value="SDL12"/>
 									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
-									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="ogg"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.515498459" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -682,11 +829,26 @@
 						<entry flags="RESOLVED" kind="libraryFile" name="emulate"/>
 					</externalSetting>
 				</externalSettings>
+				<externalSettings containerId="ogg;com.qnx.qcc.configuration.sharedLib.profile.1118325600" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="vorbis;com.qnx.qcc.configuration.sharedLib.profile.1755917151" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/vorbis"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/vorbis/Simulator-Profile"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="vorbis"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL_image;com.qnx.qcc.configuration.sharedLib.profile.1139271879" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_image"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_image/Simulator-Profile"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="SDL_image"/>
+					</externalSetting>
+				</externalSettings>
+				<externalSettings containerId="SDL_mixer;com.qnx.qcc.configuration.sharedLib.profile.1251798028" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_mixer"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_mixer/Simulator-Profile"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="SDL_mixer"/>
 					</externalSetting>
 				</externalSettings>
 				<externalSettings containerId="SDL12;com.qnx.qcc.configuration.sharedLib.profile.1424221911" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
@@ -713,7 +875,10 @@
 								<option id="com.qnx.qcc.option.compile.debug.1190470669" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.coverage.1867935068" name="Build for Code Coverage (-Wc,-ftest-coverage -Wc,-fprofile-arcs)" superClass="com.qnx.qcc.option.compiler.coverage" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.1975887295" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/src}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/emulate}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
@@ -744,6 +909,7 @@
 								<option id="com.qnx.qcc.option.compiler.security.597218086" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.914774053" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="WITH_MIXER"/>
 									<listOptionValue builtIn="false" value="WITH_IMAGE"/>
 									<listOptionValue builtIn="false" value="WITH_ZLIB"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
@@ -753,7 +919,9 @@
 							<tool id="com.qnx.qcc.tool.assembler.754965762" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
 								<option id="com.qnx.qcc.option.assembler.debug.1797295624" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.assembler.includePath.722606905" name="Include Directories (-I)" superClass="com.qnx.qcc.option.assembler.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/vorbis}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12}&quot;"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.assembler.710698468" superClass="com.qnx.qcc.inputType.assembler"/>
@@ -763,7 +931,10 @@
 								<option id="com.qnx.qcc.option.linker.coverage.788206504" name="Build for Code Coverage (-ftest-coverage -fprofile-arcs -p)" superClass="com.qnx.qcc.option.linker.coverage" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.langcpp.1246245020" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.2003859265" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="${workspace_loc:/SDL_image/Simulator-Coverage}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_mixer/Simulator-Coverage}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_image/Simulator-Coverage}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/vorbis/Simulator-Coverage}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/ogg/Simulator-Coverage}"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/TouchControlOverlay/Device-Debug}"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
@@ -771,10 +942,13 @@
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.518754460" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.2068103717" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL_mixer"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
 									<listOptionValue builtIn="false" value="SDL12"/>
 									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
-									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="ogg"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.1814248396" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -797,11 +971,26 @@
 						<entry flags="RESOLVED" kind="libraryFile" name="emulate"/>
 					</externalSetting>
 				</externalSettings>
+				<externalSettings containerId="ogg;com.qnx.qcc.configuration.sharedLib.coverage.102514633" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="vorbis;com.qnx.qcc.configuration.sharedLib.coverage.566603433" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/vorbis"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/vorbis/Simulator-Coverage"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="vorbis"/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="SDL_image;com.qnx.qcc.configuration.sharedLib.coverage.289303853" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_image"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_image/Simulator-Coverage"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="SDL_image"/>
+					</externalSetting>
+				</externalSettings>
+				<externalSettings containerId="SDL_mixer;com.qnx.qcc.configuration.sharedLib.coverage.1716192157" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SDL_mixer"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SDL_mixer/Simulator-Coverage"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="SDL_mixer"/>
 					</externalSetting>
 				</externalSettings>
 				<externalSettings containerId="SDL12;com.qnx.qcc.configuration.sharedLib.coverage.293903173" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>

@@ -6,6 +6,9 @@
 		<project>SDL12</project>
 		<project>TouchControlOverlay</project>
 		<project>SDL_image</project>
+		<project>SDL_mixer</project>
+		<project>ogg</project>
+		<project>vorbis</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

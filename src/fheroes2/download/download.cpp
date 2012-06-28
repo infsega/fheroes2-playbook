@@ -22,6 +22,131 @@
 #include <curl/easy.h>
 #include <string>
 
+#include <bps/bps.h>
+#include <bps/dialog.h>
+#include <bps/navigator.h>
+#include <screen/screen.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+static screen_context_t screen_ctx;
+static screen_window_t screen_win;
+dialog_instance_t alert_dialog = 0;
+
+
+/**
+ * Use the PID to set the window group id.
+ */
+char *
+get_window_group_id()
+{
+    static char s_window_group_id[16] = "";
+
+    if (s_window_group_id[0] == '\0') {
+        snprintf(s_window_group_id, sizeof(s_window_group_id), "%d", getpid());
+    }
+
+    return s_window_group_id;
+}
+
+/**
+ * Set up a basic screen, so that the navigator will
+ * send window state events when the window state changes.
+ *
+ * @return @c EXIT_SUCCESS or @c EXIT_FAILURE
+ */
+int
+setup_screen()
+{
+    if (screen_create_context(&screen_ctx, SCREEN_APPLICATION_CONTEXT) != 0) {
+        return EXIT_FAILURE;
+    }
+
+    if (screen_create_window(&screen_win, screen_ctx) != 0) {
+        screen_destroy_context(screen_ctx);
+        return EXIT_FAILURE;
+    }
+
+    int usage = SCREEN_USAGE_NATIVE;
+    if (screen_set_window_property_iv(screen_win, SCREEN_PROPERTY_USAGE, &usage) == 0)
+    {
+      if (screen_create_window_buffers(screen_win, 1) == 0)
+      {
+        if (screen_create_window_group(screen_win, get_window_group_id()) == 0)
+        {
+          screen_buffer_t buff;
+          if (screen_get_window_property_pv(screen_win, SCREEN_PROPERTY_RENDER_BUFFERS, (void**)&buff) == 0)
+          {
+            int buffer_size[2];
+            if (screen_get_buffer_property_iv(buff, SCREEN_PROPERTY_BUFFER_SIZE, buffer_size) == 0)
+            {
+              int attribs[1] = {SCREEN_BLIT_END};
+              if (screen_fill(screen_ctx, buff, attribs) == 0)
+              {
+                int dirty_rects[4] = {0, 0, buffer_size[0], buffer_size[1]};
+                if (screen_post_window(screen_win, buff, 1, (const int*)dirty_rects, 0) == 0)
+                    return EXIT_SUCCESS;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    screen_destroy_window(screen_win);
+    screen_destroy_context(screen_ctx);
+    return EXIT_FAILURE;
+}
+
+static
+void show_alert_dialog()
+{
+  if (alert_dialog)
+    return;
+
+  if (dialog_create_alert(&alert_dialog) != BPS_SUCCESS)
+  {
+    fprintf(stderr, "Failed to create alert dialog.");
+    return;
+  }
+
+  const char* cancel_button_context = "Canceled";
+  const char* ok_button_context = "Agreed";
+
+  if ((dialog_set_alert_message_text(alert_dialog, "You need to download Heroes 2 Demo data first (~20Mb)!\nAre you sure you want to proceed?") != BPS_SUCCESS) ||
+      (dialog_add_button(alert_dialog, DIALOG_OK_LABEL, true, ok_button_context, true) != BPS_SUCCESS) ||
+      (dialog_add_button(alert_dialog, DIALOG_CANCEL_LABEL, true, cancel_button_context, true) != BPS_SUCCESS) ||
+      (dialog_show(alert_dialog) != BPS_SUCCESS) )
+  {
+    fprintf(stderr, "Failed to add button to alert dialog.");
+    dialog_destroy(alert_dialog);
+    alert_dialog = 0;
+  }
+}
+
+/**
+ * Handle a dialog response.
+ */
+static void
+handle_dialog_response(bps_event_t *event)
+{
+  if (event == NULL)
+    return;
+
+  int selectedIndex = dialog_event_get_selected_index(event);
+  const char* label = dialog_event_get_selected_label(event);
+  const char* context = dialog_event_get_selected_context(event);
+
+  char output[1024];
+  snprintf(output, 1024, "Selected Index: %d, Label: %s, Context: %s\n",
+        selectedIndex, label?label:"n/a", context?(char*)context:"n/a");
+  fprintf(stderr, output);
+
+  dialog_destroy(alert_dialog);
+  alert_dialog = 0;
+}
+
+
 size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
   size_t written;
@@ -61,6 +186,50 @@ void unpackCurrentFile( unzFile unzFile, unsigned long size, const char* i_szFna
 
 void loadDemo()
 {
+  /*
+  int exit_application = 0;
+  bps_initialize();
+  if (setup_screen() != EXIT_SUCCESS)
+  {
+    fprintf(stderr, "Unable to initialize screen.");
+    exit(0);
+  }
+  navigator_request_events(0);
+  dialog_request_events(0);
+  show_alert_dialog();
+
+  while (!exit_application)
+  {
+    bps_event_t *event = NULL;
+    bps_get_event(&event, -1);
+
+    if (event)
+    {
+      if (bps_event_get_domain(event) == dialog_get_domain())
+        handle_dialog_response(event);
+
+      if (bps_event_get_domain(event) == navigator_get_domain())
+      {
+        unsigned int code = bps_event_get_code(event);
+        switch(code)
+        {
+        case NAVIGATOR_EXIT:
+          exit_application = 1; break;
+        case NAVIGATOR_SWIPE_DOWN:
+          show_alert_dialog();
+          break;
+        }
+      }
+    }
+  }
+
+  if (alert_dialog)
+    dialog_destroy(alert_dialog);
+  bps_shutdown();
+  screen_destroy_window(screen_win);
+  screen_destroy_context(screen_ctx);
+  */
+
   fprintf(stderr, "Loading demo...\n");
 
   LocalEvent & le = LocalEvent::Get();

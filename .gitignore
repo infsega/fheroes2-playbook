@@ -2,3 +2,5 @@
 .settings/*
 Device-Debug/*
 Device-Release/*
+*.tmp
+*.bar
